@@ -124,7 +124,7 @@ public class School {
 
     /* === Remove a Student === */
     public void removeStudent(Student student) {
-        String query = "DELETE FROM students WHERE name = ?";
+        String query = "DELETE FROM students WHERE id = ?";
         try (Connection connection = DatabaseConnection.connect();
             PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, student.getId());
@@ -153,10 +153,17 @@ public class School {
 
         return subjectList;
     }
+
     /* === Fire a Teacher === */
     public void removeTeacher(Teacher teacher) {
-        this.teachers.remove(teacher);
-    }
+        String query = "DELETE FROM teachers WHERE id = ?";
+        try (Connection connection = DatabaseConnection.connect();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, teacher.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }    }
 
     /* === Print School Information === */
     public void printSchoolInfo() {
@@ -233,7 +240,7 @@ public class School {
                 return teacher;
             }
         }
-        return null; // Если студент не найден
+        return null;
     }
 
     /* === Print Classrooms === */
@@ -245,7 +252,7 @@ public class School {
 
     @Override
     public String toString() {
-        return "School Name: " + schoolName + "\nAddress: " + address + "\nTotal Students: " + students.size();
+        return "School Name: " + schoolName + "\nAddress: " + address + "\nTotal Students: ";
     }
 
 }

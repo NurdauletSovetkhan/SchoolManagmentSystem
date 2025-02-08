@@ -10,4 +10,6 @@ module com.example.sms {
 
     opens com.example.sms to javafx.fxml;
     exports com.example.sms;
+    exports com.example.sms.f4f;
+    opens com.example.sms.f4f to javafx.fxml;
 }

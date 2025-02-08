@@ -290,4 +290,8 @@ public class main extends Application {
         });
         dialog.showAndWait();
     }
+
+    private void teacherDashboradDialog(){
+
+    }
 }

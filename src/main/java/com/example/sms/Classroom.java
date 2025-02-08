@@ -23,10 +23,6 @@ public class Classroom {
         return students;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
     public String getClassroomStatus() {
         return classroomStatus;
     }

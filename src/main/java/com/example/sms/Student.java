@@ -13,10 +13,6 @@ public class Student extends Person {
         this.contactInfo = contactInfo;
     }
 
-
-
-    // Get ID
-
     // Average grade!
     public double getAverageGrade() {
         return grades.stream().mapToInt(i -> i).average().orElse(0.0);
